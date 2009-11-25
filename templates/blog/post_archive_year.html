@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+			{%block rightSideBar%} {%include "blog/_rightSideBar.html"%} {%endblock rightSideBar%}
+			{%block header %} 
+			{{year}} Post
+			{%endblock header %}
+			{%block content%}
+			{%for date in date_list%}
+
+			<div class="postSection">
+			<div class="postHeader">
+				<h2><a href="{%url blog_month date|date:"Y", date|date:"M"|lower%}">{{date|date:"Y F"}}</a></h2>
+				</div> <!-- end postHeader  -->
+
+			</div> <!-- end postSection  -->
+			{%endfor%}
+			{%endblock content%}
+		

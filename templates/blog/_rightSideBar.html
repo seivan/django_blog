@@ -1,0 +1,20 @@
+		<h2>Latest Posts</h2>
+						<ul id="latestPosts" class="rightSideBarItems">
+				{% for latest in latest_object_list %}   
+			 <li><a href="{{latest.get_absolute_url}}">{{latest.title}}</a></li>
+			{%endfor%}
+			</ul> 
+			<h2>Latest Comments</h2>
+						<ul id="latestComments" class="rightSideBarItems">   
+				<li><a href="#">STUFF</a></li>
+			</ul>
+
+			<h2>Archive</h2>
+						<ul id="dates" class="rightSideBarItems">   
+									{% for date in dates_list %} 
+				<li><a href="{%url blog_month date|date:"Y", date|date:"M"|lower%}">{{date|date:"Y F"}}</a></li>
+			{%endfor%}
+			</ul>
+			
+
+		

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+			{%block header %} 
+			{{flatpage.title}}
+			{%endblock header %}		
+			{%block content%}
+			<div class="postSection">
+			<div class="postHeader">
+				<h2>{{flatpage.title}}</h2>
+					<div class="postDates">
+						<h2 class="created">{{flatpage.get_created}}</h2>
+			 			<h2 class="updated">{{flatpage.get_updated}}</h2>
+					</div> <!-- end postDates -->
+				</div> <!-- end postHeader  -->
+					<div class="postText">
+					{{flatpage.content_html|safe}}
+				</div> <!-- end postText -->
+						<div class="postInfo">
+			 			<a href="#">Comments(256)</a>
+					</div> <!-- end postInfo -->
+			</div> <!-- end postSection  -->
+			{%endblock content%}
+		
+		

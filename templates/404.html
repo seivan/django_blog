@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+			{%block rightSideBar %}
+				<h2>Latest Posts</h2>
+						<ul id="latestPosts" class="rightSideBarItems">   
+			 <li class="notActive"><a href="#">Today I crapped and...</a></li>
+			 <li class="notActive"><a href="#">Food and Monkeys finds...</a></li>
+			 <li class="notActive"><a href="#">Monkeys to the rescue...</a></li>
+			 <li class="notActive"><a href="#">Today I saw some weird...</a></li>
+			 <li class="notActive"><a href="#">Today I showerd for the...</a></li>
+			 <li class="notActive"><a href="#">Hey what's up tonight...</a></li>
+			</ul> 
+			<h2>Latest Comments</h2>
+						<ul id="latestComments" class="rightSideBarItems">   
+				<li class="notActive"><a href="#">By Darius in Monkeysausgemeat...</a></li>
+				<li class="notActive"><a href="#">By John in lalal</a></li>
+				<li class="notActive"><a href="#">By Smith in yyyaya</a></li>
+				<li class="notActive"><a href="#">By Smith in asdasdasd</a></li>
+				<li class="notActive"><a href="#">By Smith in Xxxxxxsxa</a></li>
+				<li class="notActive"><a href="#">By Smith in Blalbablab</a></li>
+			</ul> 
+			<h2>Archive</h2>
+						<ul id="dates" class="rightSideBarItems">   
+				<li class="notActive"><a href="#">December 2008</a></li>
+				<li class="notActive"><a href="#">January 2009</a></li>
+				<li class="notActive"><a href="#">February 2009</a></li>
+				<li class="notActive"><a href="#">March 2009</a></li>
+				<li class="notActive"><a href="#">April 2009</a></li>
+				<li class="notActive"><a href="#">May 2009</a></li>
+			</ul>
+			{%endblock rightSideBar%}
+			{%block header %} Nothing here{%endblock header %}
+			{%block content%}
+			{%for post in latest%}
+			<div class="postSection">
+			<div class="postHeader">
+				<h2>{{post.title}}</h2>
+					<div class="postDates">
+						<h2 class="created">{{post.get_created}}</h2>
+			 			<h2 class="updated">{{post.get_updated}}</h2>
+					</div> <!-- end postDates -->
+				</div> <!-- end postHeader  -->
+					<div class="postText">
+					{{post.content_html}}
+				</div> <!-- end postText -->
+						<div class="postInfo">
+			 			<a href="#">Comments(256)</a>
+						<h2>Tags</h2><a href="#">Monkeys</a>, <a href="#">Food</a>
+					</div> <!-- end postInfo -->
+			</div> <!-- end postSection  -->
+			{%endfor%}
+			{%endblock content%}
+		

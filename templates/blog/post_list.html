@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load comments %}
+			{%block rightSideBar%} {%include "blog/_rightSideBar.html"%} {%endblock rightSideBar%}
+			
+			 
+			{%block header %} 
+			{{year}} {{month|date:"Y M"}} {{day|date:"Y M d"}} Post
+			{%endblock header %}
+			
+			{%block content%}
+			{%for post in object_list%}
+
+			<div class="postSection">
+			<div class="postHeader">
+				<h2><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+					<div class="postDates">
+						<h2 class="created">{{post.get_created}}</h2>
+			 			<h2 class="updated">{{post.get_updated}}</h2>
+					</div> <!-- end postDates -->
+				</div> <!-- end postHeader  -->
+					<div class="postText">
+					{{post.content_html|safe}}
+					
+				</div> <!-- end postText -->
+						<div class="postInfo">
+							{% get_comment_count for post as comment_count %}
+			 			<a href="{{post.get_absolute_url}}">There {{comment_count|pluralize:"is,are"}} {{comment_count}} comment{{comment_count|pluralize}}</a>
+						<h2>Tags</h2><a href="#">Monkeys</a>, <a href="#">Food</a>
+					</div> <!-- end postInfo -->
+			</div> <!-- end postSection  -->
+			{%endfor%}
+			{%endblock content%}
+		
